@@ -377,45 +377,50 @@ public class SigninPage extends JFrame
 						
 						if(subscriptionMenu.getSelectedItem().toString().contains("Free"))
 						{
-							Database.add(freeAccount = new FreeAccount(account.getName(),account.getSurName(),account.getUserName()
-									,account.getPassword(),account.geteMail(),control,1,previousAccountModel,account.getRenewCounter()));
 							if(Database.deleteAccount(account))
 							{
+								Database.add(freeAccount = new FreeAccount(account.getName(),account.getSurName(),account.getUserName()
+										,account.getPassword(),account.geteMail(),control,1,previousAccountModel,account.getRenewCounter()));
+								
 								LoginPage redirect = new LoginPage("DemoFlix");
 								dispose();	
 							}
+							
 						}
 						if(subscriptionMenu.getSelectedItem().toString().contains("Basic"))
 						{
-							Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
-									,account.getPassword(),account.geteMail(),"Basic",control,month,previousAccountModel,account.getRenewCounter()));
-							JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
 							if(Database.deleteAccount(account))
 							{
+								Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
+										,account.getPassword(),account.geteMail(),"Basic",control,month,previousAccountModel,account.getRenewCounter()));
+
+								JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
 								LoginPage redirect = new LoginPage("DemoFlix");
 								dispose();	
 							}
+							
 						}
 						if(subscriptionMenu.getSelectedItem().toString().contains("Standard"))
 						{
-							Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
-									,account.getPassword(),account.geteMail(),"Standard",control,month,previousAccountModel,account.getRenewCounter()));
-							JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
 						
 							if(Database.deleteAccount(account))
 							{
+								Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
+										,account.getPassword(),account.geteMail(),"Standard",control,month,previousAccountModel,account.getRenewCounter()));
+								JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
 								LoginPage redirect = new LoginPage("DemoFlix");
 								dispose();	
 							}
 						}
 						if(subscriptionMenu.getSelectedItem().toString().contains("Full Experience"))
 						{
-							Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
-									,account.getPassword(),account.geteMail(),"Special",control,month,previousAccountModel,account.getRenewCounter()));
-							JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
 						
 							if(Database.deleteAccount(account))
 							{
+								Database.add(subscriptionAccount = new SubscriptionAccount(account.getName(),account.getSurName(),account.getUserName()
+										,account.getPassword(),account.geteMail(),"Special",control,month,previousAccountModel,account.getRenewCounter()));
+								JOptionPane.showMessageDialog(new JFrame("Thank you for choosing us"),"Payment invoice for the membership is "+ subscriptionAccount.getPaymentInvoice()+"$");
+							
 								LoginPage redirect = new LoginPage("DemoFlix");
 								dispose();	
 							}
